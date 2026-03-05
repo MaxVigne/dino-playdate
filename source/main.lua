@@ -29,7 +29,7 @@ local FAST_FALL_GRAVITY <const> = 2.4
 local MIN_CRANK_SPEED <const> = 3
 local BASE_GAME_SPEED <const> = 3
 local MAX_GAME_SPEED <const> = 12
-local CRANK_SPEED_SCALE <const> = 0.12
+local CRANK_SPEED_SCALE <const> = 0.18
 local SPEED_SMOOTHING <const> = 0.15
 local FRICTION <const> = 0.92
 
