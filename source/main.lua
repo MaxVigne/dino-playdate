@@ -29,7 +29,7 @@ local FAST_FALL_GRAVITY <const> = 2.4
 local MIN_CRANK_SPEED <const> = 3
 local BASE_GAME_SPEED <const> = 3
 local MAX_GAME_SPEED <const> = 12
-local CRANK_SPEED_SCALE <const> = 0.06
+local CRANK_SPEED_SCALE <const> = 0.12
 local SPEED_SMOOTHING <const> = 0.15
 local FRICTION <const> = 0.92
 
@@ -272,31 +272,37 @@ local function createObstacleImages()
     gfx.popContext()
 
     -- Pterodactyl frames
+    -- Body is centered at y=13 (middle of 30px height)
+    -- Both frames share the same body; only wing position changes
     for i = 1, 2 do
         pteroImages[i] = gfx.image.new(PTERO_W, PTERO_H, gfx.kColorClear)
         gfx.pushContext(pteroImages[i])
         gfx.setColor(gfx.kColorBlack)
-        -- Body
-        gfx.fillRect(4, 12, 28, 8)
-        -- Beak
-        gfx.fillRect(0, 14, 6, 4)
+        -- Body (centered vertically at y=11, height=8)
+        gfx.fillRect(4, 11, 28, 8)
         -- Head
-        gfx.fillRect(2, 10, 8, 6)
+        gfx.fillRect(2, 9, 8, 6)
+        -- Beak
+        gfx.fillRect(0, 12, 6, 3)
         -- Eye
         gfx.setColor(gfx.kColorWhite)
-        gfx.fillRect(4, 11, 2, 2)
+        gfx.fillRect(4, 10, 2, 2)
         gfx.setColor(gfx.kColorBlack)
         -- Tail
-        gfx.fillRect(30, 14, 8, 4)
+        gfx.fillRect(30, 13, 8, 4)
         -- Wings
         if i == 1 then
-            -- Wings up
-            gfx.fillRect(10, 2, 20, 4)
-            gfx.fillRect(14, 0, 12, 4)
+            -- Wings up: extend above body
+            gfx.fillRect(10, 4, 20, 3)
+            gfx.fillRect(14, 1, 12, 3)
+            -- Connect wing to body
+            gfx.fillRect(12, 7, 18, 4)
         else
-            -- Wings down
-            gfx.fillRect(10, 18, 20, 4)
-            gfx.fillRect(14, 22, 12, 6)
+            -- Wings down: extend below body
+            gfx.fillRect(10, 19, 20, 3)
+            gfx.fillRect(14, 22, 12, 3)
+            -- Connect wing to body
+            gfx.fillRect(12, 19, 18, 2)
         end
         gfx.popContext()
     end
