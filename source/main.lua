@@ -823,7 +823,7 @@ local function updatePlaying()
     end
 
     -- Score
-    if game.speed > 0.5 then
+    if game.speed > 0.5 and not dino.isDead then
         local multiplier = math.max(1, game.speed / BASE_GAME_SPEED)
         game.score = game.score + game.speed * 0.05 * multiplier
         game.difficultyLevel = math.floor(game.score / 200)
