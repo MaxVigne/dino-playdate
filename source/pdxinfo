@@ -1,6 +1,6 @@
-name=Game
-author=
-description=
-bundleID=
+name=Crank Runner
+author=MaxVigne
+description=A Chrome dino-style infinite runner powered by the crank! Crank to run, jump over cacti, duck under pterodactyls.
+bundleID=com.maxvigne.crankrunner
 version=1.0.0
 buildNumber=1
